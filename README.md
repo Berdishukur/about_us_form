@@ -1,2 +1,2 @@
-# about_us_form1
-about us page whit django super
+# about_us_form
+about us page whit django
