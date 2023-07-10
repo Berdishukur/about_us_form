@@ -1,6 +1,23 @@
-from django.shortcuts import render
-from .models import Person
+from django.shortcuts import render,redirect
+
+from .models import Person,Customer
+from .forms import CustomerForm
 # Create your views here.
+def customer_form(request):
+    form=CustomerForm(request.POST)
+    if request.POST and form.is_valid():
+        form.save()
+        return redirect("customers-list")
+    ctx={
+        "form":form
+    }
+    return render(request,"form.html",ctx)
+
+
+
+
+
+
 def main(request):
     if request.POST:
         model = Person()
